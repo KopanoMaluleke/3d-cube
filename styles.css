@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    perspective: 800px; /* Perspective for 3D effect */
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3D; /* Preserve 3D for children */
+    animation: rotate 10s infinite linear; /* Optional rotation animation */
+}
+
+@keyframes rotate {
+    from { transform: rotateY(0); }
+    to { transform: rotateY(360deg); }
+}
+
+.cube div {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.front  { transform: translateZ(100px); background-image: url(images/front..jpg)('front.jpg'); }
+.back   { transform: rotateY(180deg) translateZ(100px); background-image: url(images/back.jpg)('back.jpg'); }
+.left   { transform: rotateY(-90deg) translateZ(100px); background-image: url(images/left_Side.jpg)('left_side.jpg'); }
+.right  { transform: rotateY(90deg) translateZ(100px); background-image: url(images/right_side.jpg)('right_side.jpg'); }
+.top    { transform: rotateX(90deg) translateZ(100px); background-image: url(images/top.jpg)('top.jpg'); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); background-image: url(images/bottom.jpg)('bottom.jpg'); }
+
+.cube div {
+    background-size: cover; /* Ensure images cover the div */
+}
